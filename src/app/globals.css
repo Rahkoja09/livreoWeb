@@ -1,0 +1,333 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   MÜLLER-BROCKMANN GRID SYSTEM
+   One source of truth. 12 cols, 8px baseline, subgrid bands.
+   Content and overlay read the SAME variables → 0px drift.
+   Press G to toggle the grid overlay.
+   ════════════════════════════════════════════════════════════════ */
+:root {
+  --cols: 12;
+  --bl: 8px;              /* baseline unit — everything snaps to this */
+  --gutter: 24px;         /* 3 × baseline */
+  --margin: 24px;         /* page margin */
+  --lh: 24px;             /* leading = 3 × baseline */
+  --maxw: 1200px;         /* content box max width */
+
+  /* Brand palette: paper, navy ink, one accent (Livreo orange) */
+  --mb-paper: #ffffff;
+  --mb-ink: #182C50;
+  --mb-ink-soft: rgba(24, 44, 80, 0.62);
+  --mb-ink-faint: rgba(24, 44, 80, 0.38);
+  --mb-accent: #E77830;
+  --mb-rule: rgba(24, 44, 80, 0.14);
+}
+
+@media (min-width: 768px) {
+  :root { --margin: 40px; --gutter: 32px; }
+}
+@media (min-width: 1100px) {
+  :root { --margin: 48px; }
+}
+
+/* The grid wrapper — content + overlay share this exact box.
+   This is §2.2 of the skill: the overlay MUST live in the same
+   content box as the content, otherwise they drift at >maxw. */
+.mb-grid {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding-left: var(--margin);
+  padding-right: var(--margin);
+  position: relative;
+}
+
+/* A horizontal band that re-exposes the parent's columns via subgrid */
+.mb-band {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  column-gap: var(--gutter);
+  align-items: start;
+}
+@supports not (grid-template-columns: subgrid) {
+  .mb-band { grid-template-columns: repeat(var(--cols), 1fr); }
+}
+
+/* Optical alignment: large display type shifted so the INK lands on
+   the column line, not the box. The box has a left side-bearing that
+   visually pushes the letter off the line. JS measures and corrects. */
+.mb-optical { margin-left: 0; }
+
+/* Baseline lock: leading and every vertical rhythm unit is a multiple
+   of --bl. This is what makes facing columns line up. */
+.mb-lh { line-height: var(--lh); }
+.mb-lh-tight { line-height: calc(var(--bl) * 2); }
+.mb-lh-display { line-height: calc(var(--bl) * 5); }
+
+/* Hairline rule sitting in a baseline-height band */
+.mb-rule {
+  border: 0;
+  border-top: 1px solid var(--mb-rule);
+  margin: 0;
+}
+
+/* Kicker: mono caps, the Swiss editorial register */
+.mb-kicker {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mb-ink-soft);
+  font-weight: 500;
+}
+.mb-kicker--accent { color: var(--mb-accent); }
+
+/* Mono caption / folio */
+.mb-mono {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--mb-ink-faint);
+}
+
+/* Display type scale — large jumps, few sizes. Objective hierarchy. */
+.mb-display {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: calc(var(--bl) * 6);
+  color: var(--mb-ink);
+}
+.mb-headline {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: calc(var(--bl) * 4);
+  color: var(--mb-ink);
+}
+.mb-subhead {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: var(--lh);
+  color: var(--mb-ink);
+}
+
+/* Body — flush-left, ragged-right */
+.mb-body {
+  font-size: 15px;
+  line-height: var(--lh);
+  color: var(--mb-ink-soft);
+}
+.mb-body--lead {
+  font-size: 17px;
+  line-height: calc(var(--bl) * 3);
+  color: var(--mb-ink);
+}
+
+/* Big numeral — signature MB move */
+.mb-numeral {
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: var(--mb-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Links — flush, no decoration, ink-coloured */
+.mb-link {
+  color: var(--mb-ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--mb-ink);
+  padding-bottom: 1px;
+  transition: color 150ms, border-color 150ms;
+}
+.mb-link:hover {
+  color: var(--mb-accent);
+  border-color: var(--mb-accent);
+}
+
+/* CTA button — sharp, no rounding (Swiss = honest geometry) */
+.mb-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--mb-ink);
+  color: var(--mb-paper);
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  height: 48px;
+  padding: 0 24px;
+  border: none;
+  cursor: pointer;
+  transition: background 150ms;
+}
+.mb-button:hover { background: var(--mb-accent); }
+
+/* Grid toggle overlay — press G. Overlay lives INSIDE the .mb-grid
+   so its columns ARE the content columns at every width. */
+body.grid-on .mb-guides {
+  opacity: 1;
+}
+.mb-guides {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  column-gap: var(--gutter);
+  opacity: 0;
+  transition: opacity 180ms ease;
+  pointer-events: none;
+  z-index: 100;
+}
+.mb-guides > span {
+  background: rgba(231, 120, 48, 0.06);
+  outline: 1px solid rgba(231, 120, 48, 0.28);
+}
+/* Margin lines */
+.mb-guides::before,
+.mb-guides::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: rgba(231, 120, 48, 0.6);
+}
+.mb-guides::before { left: var(--margin); }
+.mb-guides::after { right: var(--margin); }
+/* Baseline lines — every leading */
+body.grid-on::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(var(--lh) - 1px),
+    rgba(231, 120, 48, 0.18) calc(var(--lh) - 1px),
+    rgba(231, 120, 48, 0.18) var(--lh)
+  );
+  pointer-events: none;
+  z-index: 99;
+}
